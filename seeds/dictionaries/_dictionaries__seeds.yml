@@ -11,3 +11,9 @@ seeds:
         tests:
           - not_null
           - unique
+  - name: passenger_id
+    config:
+      column_types:
+        passenger_id: varchar(20)
+      columns:
+        - name: passenger_id
