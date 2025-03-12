@@ -2,7 +2,7 @@
 select distinct
     status
 from
-    {{ ref('fct_flights') }}
+    {{ ref('stg_flights__facts__flights') }}
 {% endset %}
 
 {% set status_query_result = run_query(status_query) %}
@@ -11,10 +11,10 @@ from
 {% else %}
     {% set important_status = [] %}
 {% endif %}
-select 
-    {% for flight_id in important_status %}
-    sum(case when status = '{{ status }}' then 1 else 0 end) as _{{ status }}
+select
+    {% for status in important_status %}
+    sum(case when status = '{{ status }}' then 1 else 0 end) as "status_{{ status }}"
         {%- if not loop.last %},{% endif %}
     {%- endfor %}
 from
-    {{ ref('fct_flights') }}
+    {{ ref('stg_flights__facts__flights') }}
