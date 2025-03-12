@@ -5,6 +5,6 @@
 SELECT 
     COUNT(*)
 FROM
-    {{ ref('stg_flights__facts__flights') }}
+    {{ ref('fct_flights') }}
 WHERE 
     scheduled_departure BETWEEN '{{ current_date }}' AND '{{ current_date | replace(current_year, prev_year) }}'
