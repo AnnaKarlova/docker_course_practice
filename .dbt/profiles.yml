@@ -1,0 +1,24 @@
+dbt_course:
+  outputs:
+    dev:
+      dbname: dbt_course
+      host: localhost
+      pass: mysecretpassword
+      port: 4001
+      schema: bookings_dbt
+      threads: 4
+      type: postgres
+      user: postgres
+  target: dev
+dbt_course_practice:
+  outputs:
+    dev:
+      dbname: dbt_course
+      host: localhost
+      pass: mysecretpassword
+      port: 4001
+      schema: bookings_dbt
+      threads: 4
+      type: postgres
+      user: postgres
+  target: dev
